@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+
+     .bar{
+        margin-top: 200px;
+        border:10px solid #001a33;
+        height:420px;
+    }    
+
+
+  .vertical{
+      border-radius: 0px;
+      background-color: #001a33;            
+      height:400px;
+      float:left;
+      width:20%;
+      display:-webkit-box;
+      -webkit-transform: rotate(180deg);
+  } 
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bar">
+ 
+                <div class="progress vertical">
+                    <div class="progress-bar bg-success" id="one" style="width:100%; transition: 0.6s ease; "></div>
+                </div>
+                <div class="progress vertical">
+                    <div class="progress-bar bg-primary" id="two" style="width:100%;  transition: 0.6s ease; "></div>
+                </div>
+                <div class="progress vertical">
+                    <div class="progress-bar bg-dark" id="three" style="width:100%; transition: 0.6s ease;"></div>
+                </div>
+                <div class="progress vertical">
+                    <div class="progress-bar bg-warning" id="four" style="width:100%; transition: 0.6s ease;"></div>
+                </div>
+                <div class="progress vertical">
+                    <div class="progress-bar bg-danger" id="five" style="width:100%; transition: 0.6s ease;"></div>
+                </div>
+ 
+        </div>
+        
+        <div class="buttons" style="margin-top:70px;">
+                <button class="btn btn-primary" style="margin-left:30% ;" id="start">Start</button>
+
+                <button class="btn btn-danger" style="margin-left: 30% ;" id="stop">Stop</button>
+        </div>
+    </div>
+
+
+    <script>
+        const start = document.getElementById('start')
+        
+          const b = start.addEventListener("click", (e)=>{
+            const a = setInterval(() => {
+                var arr = [];
+                
+                for (x = 0; x < 5; x++) {
+                    arr.push(Math.random() * 100);
+                }
+                console.log(arr);
+                document.getElementById('one').style.height = arr[0] + "%";
+                document.getElementById('two').style.height = arr[1] + "%";
+                document.getElementById('three').style.height = arr[2] + "%";
+                document.getElementById('four').style.height = arr[3] + "%";
+                document.getElementById('five').style.height = arr[4] + "%";
+            }, 1000);
+
+            const stop = document.getElementById('stop')
+            stop.addEventListener("click",()=>{
+                clearInterval(a);
+            })
+            
+        });         
+    </script>
+</body>
+</html>
